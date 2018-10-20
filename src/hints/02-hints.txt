@@ -1,4 +1,4 @@
-
+﻿
 
 
 
@@ -37,6 +37,8 @@ Okay, okay, fine, this is a viz class, I guess?
 2. Select everything under the "International non stop flights from New York may fly to:" heading
 3. Copy and paste into a new file
 4. Find and Replace. Search for: `(.*) – (.*) – (.*)` and replace with `"\1","\2","\3"` (but without the backticks - that's just for markdown to not freak out)
+
+
 
 
 
@@ -238,6 +240,8 @@ As always, be careful with your column names for latitude and longitude
 
 
 
+
+
 When you're drawing your flight paths, you'll need to build some custom geojson. It looks like this:
 
 
@@ -256,7 +260,7 @@ When you're drawing your flight paths, you'll need to build some custom geojson.
 
 
 
-To ge tthe lat/lon of the destination airports, you'll need to use a d3.map() - we called ours CoordinateStore when we did it in class, you'll probably do just about the exact same thing!
+To get the lat/lon of the destination airports, you'll need to use a d3.map() - we called ours CoordinateStore when we did it in class, you'll probably do just about the exact same thing!
 
 
 

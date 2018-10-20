@@ -49,7 +49,7 @@ function ready([json, flights, airports]) {
     .append('path')
     .datum({ type: 'Sphere' })
     .attr('d', path)
-    .attr('fill', '#b3d9ff')
+    .attr('fill', 'lightblue')
     .attr('stroke', 'black')
     .attr('stroke-width', 0.5)
 
@@ -60,7 +60,7 @@ function ready([json, flights, airports]) {
     .append('path')
     .attr('class', 'country')
     .attr('d', path)
-    .attr('fill', '#d9d9d9')
+    .attr('fill', 'lightgrey')
     .attr('stroke', 'black')
     .attr('stroke-width', 0.3)
 
@@ -89,10 +89,11 @@ function ready([json, flights, airports]) {
     .attr('d', d => {
       // What is the 'from' city?
       // console.log(d.coordsJFK)
+      console.log(d)
 
       // coordinates JFK
       let fromCoords = [-73.78, 40.64]
-      let toCoords = coordinateStore.get(d.code)
+      let toCoords = coordinateStore.get(d.abbreviation)
 
       var geoLine = {
         type: 'LineString',

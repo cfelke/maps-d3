@@ -8,7 +8,7 @@
     "lint": "eslint --fix src/*.js",
     "prettier": "prettier --write src/*.js",
     "start": "parcel src/index.html",
-    "build": "parcel build src/index.html --out-dir docs --public-url /change-me-to-match-your-repo"
+    "build": "parcel build src/index.html --out-dir docs --public-url /maps-d3"
   },
   "jest": {
     "setupFiles": [
@@ -32,11 +32,13 @@
     "prettier": "^1.14.2"
   },
   "dependencies": {
+    "@turf/turf": "^5.1.6",
     "babel-preset-env": "^1.7.0",
     "d3": "^5.7.0",
     "d3-geo-projection": "^2.4.1",
     "jest": "^23.6.0",
     "node-fetch": "^2.2.0",
+    "polylabel": "^1.0.2",
     "topojson": "^3.0.2"
   }
 }

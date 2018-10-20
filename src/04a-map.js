@@ -14,3 +14,60 @@ let svg = d3
   .attr('width', width + margin.left + margin.right)
   .append('g')
   .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')')
+
+let projection = d3.geoAlbersUsa()
+// let graticule = d3.geoGraticule()
+
+let path = d3.geoPath().projection(projection)
+
+let colorScale = d3.scaleSequential(d3.interpolatePiYG)
+
+let opacityScale = d3
+  .scaleLinear()
+  .domain([0, 80000])
+  .range([0, 1])
+  .clamp(true)
+
+Promise.all([
+  d3.json(require('./data/counties_with_election_data.topojson')),
+  d3.csv(require('./data/world-cities.csv'))
+])
+
+  .then(ready)
+  .catch(err => console.log('Failed on', err))
+
+function ready(json) {
+  // console.log(json[0].objects)
+
+  let counties = topojson.feature(json[0], json[0].objects.us_counties)
+  // console.log(counties)
+
+  svg
+    .selectAll('.county')
+    .data(counties.features)
+    .enter()
+    .append('path')
+    .attr('class', 'county')
+    .attr('d', path)
+    .attr('stroke', 'none')
+    .attr('fill', 'white')
+    .attr('class', d => d.properties.state)
+    .attr('fill', d => {
+      // console.log(d.properties)
+      if (!d.properties.state) {
+        return 'lightgrey'
+      } else {
+        var percent =
+          d.properties.trump / (d.properties.trump + d.properties.clinton)
+        return colorScale(percent)
+      }
+    })
+
+    .attr('opacity', function(d) {
+      if (d.properties.state) {
+        let totalvotes = d.properties.clinton + d.properties.trump
+        return opacityScale(totalvotes)
+      }
+      return 1
+    })
+}

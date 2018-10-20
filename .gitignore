@@ -1,9 +1,13 @@
-dist
 
-# Created by https://www.gitignore.io/api/node,windows
+dist
+.cache
+node_modules
+
+
+# Created by https://www.gitignore.io/api/osx,node
 
 ### Node ###
-#Logs
+# Logs
 logs
 *.log
 npm-debug.log*
@@ -77,36 +81,33 @@ typings/
 # Serverless directories
 .serverless
 
-### Windows ###
-# Windows thumbnail cache files
-Thumbs.db
-ehthumbs.db
-ehthumbs_vista.db
-
-# Dump file
-*.stackdump
-
-# Folder config file
-[Dd]esktop.ini
-
-# Recycle Bin used on file shares
-$RECYCLE.BIN/
-
-#exclude files
-node_modules
-dist
-.cache
+### OSX ###
+# General
 .DS_Store
+.AppleDouble
+.LSOverride
 
-# Windows Installer files
-*.cab
-*.msi
-*.msix
-*.msm
-*.msp
+# Icon must end with two \r
+Icon
 
-# Windows shortcuts
-*.lnk
+# Thumbnails
+._*
+
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
 
 
-# End of https://www.gitignore.io/api/node,windows
+# End of https://www.gitignore.io/api/osx,node
