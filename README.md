@@ -4,4 +4,4 @@
 >> Did the first map and started doing the second one
 
 #Update
->> My code for the hexagon map is kinda broken, still figuring out what's happening there, finished map 2 and did 4a +4b
+>> My code for the hexagon map is kinda broken, figuring out what's happening there, finished map 2 and did 4a +4b
